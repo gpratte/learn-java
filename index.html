@@ -147,8 +147,78 @@ class HelloWorldApp {
       </ul>
     </p>
     <p> <b>Question:</b> Java division is not what you expect. In Javascript if you divide 4 / 3 the result is 1.333. In Java the result is a the numerator result <b>WITHOUT</b> the remainder which </p>
-    <p> <b>Classroom:</b> Look at, and code using the helper methods (e.g. search, sort), the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html">Arrays</a>  class.</p>
 
+    <hr>
+    <h1>Session: Equality, Relational, and Conditional Operators</h1>
+    <p> <b>Objective: </b>Compare variables</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/op2.html"> Equality, Relational, and Conditional Operators</a> section in the tutorial</li>
+      </ul>
+    </p>
+    <p> <b>Assignment: </b> Do the following:
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Assign values to varibles, compare the variables in an <i>if</i> statement and print the result in the body of the if statement.</li>
+        <li>Make sure to do at least one of each <i>&gt;, &gt;=, &lt;, &lt;=, ==, !=, &&, ||</i>. Optionally you can try <i>instanceof</i>. </li>
+      </ul>
+      <p>Here is an example:
+        <pre>
+int x = 5;
+int y = 6;
+if (x < y) {
+  System.out.println("x is 5 and is less than y which is 6");
+}
+
+if (x != y) {
+  System.out.println("x is 5 and does not equal y which is 6");
+}
+
+int z = 7;
+if (z >= 7) {
+  System.out.println("z is 7 which is greater or equal to 7");
+}
+</pre>
+      </p>
+    </p>
+    <p> <b>Classroom:</b> Live coding and go over the nuances of the short circuit AND and OR operators.</p>
+
+    <hr>
+    <h1>Operator Summary, Questions and Exercises</h1>
+    <p> <b>Objective: </b>Review operators</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html"> Summary of Operators</a> section in the tutorial</li>
+      </ul>
+    </p>
+    <p> <b>Assignment: </b>
+      Read and do the <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/QandE/questions_operators.html">Questions and Exercises: Operators</a> section in the tutorial
+
+    <p> <b>Classroom:</b> Go over the exercises together.</p>
+
+    <hr>
+    <h1>Branching Statements</h1>
+    <p> <b>Objective: </b>Conditionally branch program execution</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/flow.html"> Control Flow Statements</a> section in the tutorial</li>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html">The if-then and if-then-else Statements</a> section in the tutorial</li>
+      </ul>
+    </p>
+    <p> <b>Assignment: </b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Write code that uses <i>if, if/else, if/else if/else</i> conditional statemetns</li>
+      </ul>
+
+    <p> <b>Classroom:</b> Simplify overly complicated branching code.</p>
+
+    <!--
+      if ( (x && y) || (x && !y) )
+      if ( !x && y)
+      if (z)
+      see b-c controller
+    -->
 
   </body>
 </html>

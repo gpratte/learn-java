@@ -208,17 +208,129 @@ if (z >= 7) {
     <p> <b>Assignment: </b>
       <ul>
         <li>Create a new project in IntelliJ with a Main class with a main method</li>
-        <li>Write code that uses <i>if, if/else, if/else if/else</i> conditional statemetns</li>
+        <li>Write code that uses <i>if, if/else, if/else if/else</i> conditional statements</li>
       </ul>
 
     <p> <b>Classroom:</b> Simplify overly complicated branching code.</p>
 
-    <!--
-      if ( (x && y) || (x && !y) )
-      if ( !x && y)
-      if (z)
-      see b-c controller
-    -->
+    <hr>
+    <h1>Switch</h1>
+    <p> <b>Objective: </b>Conditionally branch program execution using switch</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/switch.html"> The switch Statement</a> section in the tutorial</li>
+      </ul>
+    </p>
+    <p> <b>Assignment: </b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Write code that uses the <i>switch</i> statement to determine (sout) if a day of the week is a weekday or the weekend</li>
+      </ul>
+    </p>
+
+    <p> <b>Classroom:</b> Live coding to switch on numbers and Strings.</p>
+
+    <hr>
+    <h1>Loops (while)</h1>
+    <p> <b>Objective: </b>Loop using <i>while</i> and <i>do/while</i> </p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/while.html"> The while and do-while Statements</a> section in the tutorial</li>
+      </ul>
+    </p>
+    <p> <b>Assignment: </b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Write code that uses the <i>while</i> statement that prints the dividend and the remainder when dividing 9 by 1, 9 by 2, 9 by 3, ..., 9 by 9</li>
+        <li>Write code that uses the <i>do/while</i> statement that prints the first 10 elements of the fibonacci series</li>
+      </ul>
+    </p>
+
+    <p> <b>Classroom:</b>
+      <ul>
+        <li>Live coding a loop that runs for 5 seconds</li>
+        <li>Live coding in infite loop</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Loops (for)</h1>
+    <p> <b>Objective: </b>Loop using the indexed <i>for</i> and the enhanced <i>for</i> </p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html"> The for Statement</a> section in the tutorial</li>
+      </ul>
+    </p>
+    <p> <b>Assignment: </b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Write code that uses the index <i>for</i> statement to print out the bad baby names array from the arrays session</li>
+        <li>Write code that uses the enhanced <i>for</i> statement to print out the bad baby names array from the arrays session</li>
+      </ul>
+    </p>
+
+    <p> <b>Classroom:</b>
+      <ul>
+        <li>Live coding a <i>for</i> loop of a <i>List</i> </li>
+        <li>Live coding in infite loop</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Branching Loops (break and continue)</h1>
+    <p> <b>Objective: </b>Leave a loop early or skip the rest of the loop and start back at the top</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li>The <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/branch.html"> Branching Statements</a> section in the tutorial</li>
+      </ul>
+    </p>
+    <p> <b>Assignment: </b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Write code loops an array of the names of the months and prints the names of the month. Enhance the code by adding a <i>break</i> to break out of the loop when the month is the same as the month that you were born</li>
+        <li>Write code that divides 21 by 1, 21 by 2, 21 by 3, ..., 21 by 21 and prints the remainder. When the remainder is zero skip printing the remainder and <i>continue</i> to the top of the loop.</li>
+      </ul>
+    </p>
+
+    <p> <b>Classroom:</b> Live coding breaks and continues</p>
+
+    <hr>
+    <h1>Processing command line arguments</h1>
+    <p> <b>Objective: </b>Loop through the command line arguments</p>
+    <p> <b>Lessons: </b>
+      Ever noticed that the main signature has an array of arguments?
+    </p>
+    <p><i>public static void main(String[] args)</i></p>
+    <p>
+      In intelliJ you can pass arguments to a program (see )
+    </p>
+    <p>
+      Obviously the arguments are <i>String</i>s.
+    </p>
+    <p> <b>Assignment 1: </b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Run the main method and then edit the run configuration to add arguments</li>
+        <li>In a for loop print out the arguments</li>
+        <li>If an argument is "exit" then break out of the for loop which will end the program because there is no code after the for loop.</li>
+        <li>If an argument is "skip" then skip the rest of the code in the loop and continue to the top of the loop.</li>
+        <li>If the argument is "echo" then print "echo" twice.</li>
+      </ul>
+    </p>
+
+    <p><b>Lesson continued</b></p>
+    <p>In Java you can change a <i>String</i> to an <i>double</i> by doing the following:
+<pre>String numberAsText = "3";
+double number = Double.parseDouble(numberAsText);</pre>
+    </p>
+
+    <p> <b>Assignment 2: </b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Run the main method and then edit the run configuration to add an arguments which is a math statement (e.g. 2 + 3)</li>
+        <li>In a for loop print process the arguments by writing the code to add, substract, muliply and divide.</li>
+      </ul>
+    </p>
 
   </body>
 </html>

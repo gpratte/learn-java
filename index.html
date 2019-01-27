@@ -400,6 +400,10 @@ double number = Double.parseDouble(numberAsText);</pre>
       </ul>
     </p>
 
+    <p> <b>Lesson</b>
+      <p>TODO image of memory</p>
+    </p>
+
     <p> <b>Assignment</b>
       <p>No assignment</p>
     </p>
@@ -423,6 +427,125 @@ double number = Double.parseDouble(numberAsText);</pre>
         <li>Pass a few arguments to the constructor and use them to set the private variables</li>
         <li>Create a few getter methods that return the variables</li>
         <li>In the main method of the Main class new up your class and call all the getter methods</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Controlling Access to Members of a Class</h1>
+    <p> <b>Objective: </b>Learn what can access what</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">Controlling Access to Members of a Class</a> </li>
+      </ul>
+    </p>
+
+    <p><b>Lesson</b>
+      Make sure you understand the access levels
+      <table border="1">
+        <tr>
+          <th>Modifier</th>
+          <th>Class</th>
+          <th>Package</th>
+          <th>Subclass</th>
+          <th>World</th>
+        </tr>
+        <tr>
+          <td>public</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+        </tr>
+        <tr>
+          <td>protected</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">N</td>
+        </tr>
+        <tr>
+          <td>empty</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">N</td>
+          <td align="center">N</td>
+        </tr>
+        <tr>
+          <td>private</td>
+          <td align="center">Y</td>
+          <td align="center">N</td>
+          <td align="center">N</td>
+          <td align="center">N</td>
+        </tr>
+      </table>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ</li>
+        <li>Create a package from src and named it <i>goods</i>. In the goods package do
+          <ul>
+            <li>Declare a class in the goods package and name it <i>Widget</i> and give it four member variables, one of each access modifier (i.e. public, protected, ...)</li>
+            <li>Declare another class in the goods package and name it <i>Gizmo</i> and new up a Widget. Which members of Widget can Gizmo accesss?</li>
+          </ul>
+        </li>
+        <li>Create a package from src and named it <i>stuff</i>. In the stuff package do
+          <ul>
+            <li>Declare a class in the stuff package and name it <i>Doodad</i> and new up a Widget. Which members of Widget can you accesss?</li>
+            <li>Declare another class in the stuff package and name it <i>Thingamajig</i> that extends a Widget.  Which members of Widget can you accesss?</li>
+          </ul>
+        </li>
+      </ul>
+      You should have the following
+      <pre>    src/goods/Widget
+    src/goods/Gizmo
+    src/stuff/Doodad
+    src/stuff/Thingamajig</pre>
+    </p>
+
+    <hr>
+    <h1>Understanding Class Members</h1>
+    <p> <b>Objective: </b>Understand how there is one and only one class member</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/classvars.html">Understanding Class Members</a> </li>
+      </ul>
+    </p>
+
+    <p> <b>Lesson</b>
+      <p>
+        TODO insert memory image here
+      </p>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Declare a class and name it <i>Person</i> </li>
+        <li>In the Person class declare a private member variable <i>String firstName</i> with a getter and a setter</li>
+        <li>In the Person class declare a private static class variable <i>String lastName</i> with a getter and a setter</li>
+        <li>In the Main class new up a Person (we'll call this person1) and set the first name and last name and call the getters to print them out</li>
+        <li>In the Main class new up another Person (we'll call this person2) and set the first name and last name and call the getters to print them out</li>
+        <li>Now call the getters on person1. Notice how lastName changed? Why?</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Annotations</h1>
+    <p> <b>Objective: </b>Understand @Deprecated and @Override annotations</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/annotations/basics.html">Annotations Basics</a> </li>
+        <li>about the @Deprecated and @Override in the <a href="https://docs.oracle.com/javase/tutorial/java/annotations/predefined.html">Predefined Annotation Types</a>  section</li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Declare a class and name it anything you want </li>
+        <li>In the class declare a private member variable <i>String name</i></li>
+        <li>Generate a <i>equals</i>, <i>hashCode</i> and <i>toString</i> methods. Notice the @Override annotation. What class is being overridden?</li>
       </ul>
     </p>
 

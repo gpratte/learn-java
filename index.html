@@ -555,6 +555,21 @@ double number = Double.parseDouble(numberAsText);</pre>
     <p>Some good advise - start by drawing how the list works on paper.</p>
 
     <hr>
+    <h1>Test Driven Development (TDD)</h1>
+    <p> <b>Objective: </b>Implement code by writing tests first</p>
+    <p> <b>Prepare: </b> Read <a href="https://en.wikipedia.org/wiki/Test-driven_development#Test-driven_development_cycle">Test-driven development cycle
+</a>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Employ TDD in the main method of Main to test the following method</li>
+        <li>Create a class with a single method <i>getDaysInMonth(int month, int year)</i>. This method should return the days for the month for the given year</li>
+      </ul>
+    </p>
+
+    <hr>
     <h1>Annotations</h1>
     <p> <b>Objective: </b>Understand @Deprecated and @Override annotations</p>
     <p> <b>Prepare: </b> Read
@@ -571,6 +586,63 @@ double number = Double.parseDouble(numberAsText);</pre>
         <li>In the class declare a private member variable <i>String name</i></li>
         <li>Generate a <i>equals</i>, <i>hashCode</i> and <i>toString</i> methods. Notice the @Override annotation. What class is being overridden?</li>
       </ul>
+    </p>
+
+    <hr>
+    <h1>Interfaces</h1>
+    <p> <b>Objective: </b>Understand interfaces define behavior</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/createinterface.html">Interfaces</a> </li>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/interfaceDef.html">Defining an Interface</a> </li>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/usinginterface.html">Implementing an Interface</a> </li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Declare an interface with 2 methods and name it anything you want </li>
+        <li>Declare a class that implements the interface. Let IntelliJ generate the methods (see the @Override)</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Interfaces continued</h1>
+    <p> <b>Objective: </b>Implement the Comparable interface</p>
+    <p> <b>Prepare: </b> Read the Javadoc for the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html">Comparable</a> interface
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Declare a <i>Foo</i> class with a <i>private final String name</i> field</li>
+        <li>Generate a constructor and a getter</li>
+        <li>In the main method of Main employ TDD to</li>
+        <ul>
+          <li>New up two Foo objects with different names</li>
+          <li>Call the <i>compareTo</i> method on one of the Foo objects, it will not compile. Assert that the return value is what you expect it to be</li>
+        </ul>
+        <li>Enhance Foo to implement the <i>Comparable</i> interface</li>
+        <li>Generate the <i>compareTo</i> method of the Comparable interface</li>
+        <li>Code the compareTo method</li>
+        <li>Now your test should pass</li>
+        <li>Write some more Foo.compareTo tests with different instances of Foo</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Interfaces continued again</h1>
+    <p> <b>Objective: </b>Use an interface as a type</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/interfaceAsType.html">Using an Interface as a Type</a> </li>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/nogrow.html">Evolving Interfaces</a> </li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b> None. Will show interfaces as types in default
+      methods with live coding.
     </p>
 
   </body>

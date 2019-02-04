@@ -486,13 +486,13 @@ double number = Double.parseDouble(numberAsText);</pre>
         <li>Create a package from src and named it <i>goods</i>. In the goods package do
           <ul>
             <li>Declare a class in the goods package and name it <i>Widget</i> and give it four member variables, one of each access modifier (i.e. public, protected, ...)</li>
-            <li>Declare another class in the goods package and name it <i>Gizmo</i> and new up a Widget. Which members of Widget can Gizmo accesss?</li>
+            <li>Declare another class in the goods package and name it <i>Gizmo</i> and new up a Widget in Gizmo's constructor. Which members of Widget can Gizmo accesss?</li>
           </ul>
         </li>
         <li>Create a package from src and named it <i>stuff</i>. In the stuff package do
           <ul>
-            <li>Declare a class in the stuff package and name it <i>Doodad</i> and new up a Widget. Which members of Widget can you accesss?</li>
-            <li>Declare another class in the stuff package and name it <i>Thingamajig</i> that extends a Widget.  Which members of Widget can you accesss?</li>
+            <li>Declare a class in the stuff package and name it <i>Doodad</i> and new up a Widget in Doodad's constructor. Which members of Widget can you accesss?</li>
+            <li>Declare another class in the stuff package and name it <i>Thingamajig</i> that extends a Widget.  Do NOT new up a Widget because Thingamajig is a Widget because it extends Widget. Access Widget's fields in Thingamajig's constructor. Which members of Widget can you accesss?</li>
           </ul>
         </li>
       </ul>
@@ -501,6 +501,8 @@ double number = Double.parseDouble(numberAsText);</pre>
     src/goods/Gizmo
     src/stuff/Doodad
     src/stuff/Thingamajig</pre>
+
+    <p>Do not use the <i>static</i> keyword in any of the four classes.</p>
     </p>
 
     <hr>
@@ -544,8 +546,8 @@ double number = Double.parseDouble(numberAsText);</pre>
         <li>Declare a class and name it MyLinkedList</li>
         <li>MyLinkedList should provide the following methods
           <ul>
-            <li> <i>push</i> to add a number to the list</li>
-            <li> <i>pop</i> to remove an number from the list. If the list is empty then return null</li>
+            <li> <i>add</i> to add a String to the list</li>
+            <li> <i>get</i> to get the String from the cell at the given index. If the list is empty then return null</li>
             <li> <i>size</i> to return the number of cells in the list.</li>
           </ul>
         </li>
@@ -553,6 +555,8 @@ double number = Double.parseDouble(numberAsText);</pre>
     </p>
 
     <p>Some good advise - start by drawing how the list works on paper.</p>
+
+    <p>Test the class by newing it up in the main method of Main and calling the methods.</p>
 
     <hr>
     <h1>Test Driven Development (TDD)</h1>

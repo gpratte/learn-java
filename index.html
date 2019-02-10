@@ -487,15 +487,65 @@ double number = Double.parseDouble(numberAsText);</pre>
     <hr>
     <h1>Test Driven Development (TDD)</h1>
     <p> <b>Objective: </b>Implement code by writing tests first</p>
-    <p> <b>Prepare: </b> Read <a href="https://en.wikipedia.org/wiki/Test-driven_development#Test-driven_development_cycle">Test-driven development cycle
-</a>
+    <p> <b>Prepare: </b> Read <a href="https://en.wikipedia.org/wiki/Test-driven_development#Test-driven_development_cycle">Test-driven development cycle</a>
     </p>
 
     <p> <b>Assignment</b>
       <ul>
         <li>Create a new project in IntelliJ with a Main class with a main method</li>
         <li>Employ TDD in the main method of Main to test the following method</li>
-        <li>Create a class with a single method <i>getDaysInMonth(int month, int year)</i>. This method should return the days for the month for the given year</li>
+        <li>Create a class with a single method <i>getDaysInMonth(int month, int year)</i>. This method should return the days for the month for the given year. Remember to calculate days in February for a leap year.</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Buildtools</h1>
+    <p> <b>Objective: </b>Use either Maven or Gradle to build/run your code</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li><a href="https://maven.apache.org/what-is-maven.html">What is Maven</a> for a brief introduction to maven</li>
+        <li>The first two paragraphs of <a href="https://en.wikipedia.org/wiki/Gradle">Gradle Wikipedia</a> for a brief introduction to gradle</li>
+      </ul>
+    </p>
+
+    <p> <b>Learn</b>
+      <p>
+        In intelliJ you can generate a Maven project. See my <a href="https://www.youtube.com/watch?v=5VTEilWZyfk">youtube</a> video.
+      </p>
+      <p>
+        In intelliJ you can generate a Gradle project. See my <a href="https://www.youtube.com/watch?v=BDsQsq2G9Dg">youtube</a> video.
+      </p>
+    </p>
+
+    <p> <b>Assignment</b> <br>
+      Create a maven project then create a gradle project.
+    </p>
+
+    <hr>
+    <h1>Unit Testing</h1>
+    <p> <b>Objective: </b>Use Junit to test</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li><a href="https://www.javatpoint.com/junit-tutorial">JUnit Tutorial | Testing Framework for Java
+</a></li> Read the following sections
+          <ul>
+            <li>Types of unit testing</li>
+            <li>Assert class</li>
+          </ul>
+      </ul>
+    </p>
+
+    <p> <b>Learn</b>
+      <p>
+        In intelliJ you can test using JUnit. See my <a href="https://www.youtube.com/watch?v=-Ge_ISu5BxU">youtube</a> video.
+      </p>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new Maven project in IntelliJ</li>
+        <li>Create the same days of month class that you created for the TDD session</li>
+        <li>Test the class using JUnit</li>
       </ul>
     </p>
 

@@ -431,81 +431,6 @@ double number = Double.parseDouble(numberAsText);</pre>
     </p>
 
     <hr>
-    <h1>Controlling Access to Members of a Class</h1>
-    <p> <b>Objective: </b>Learn what can access what</p>
-    <p> <b>Prepare: </b> Read
-      <ul>
-        <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">Controlling Access to Members of a Class</a> </li>
-      </ul>
-    </p>
-
-    <p><b>Lesson</b>
-      Make sure you understand the access levels
-      <table border="1">
-        <tr>
-          <th>Modifier</th>
-          <th>Class</th>
-          <th>Package</th>
-          <th>Subclass</th>
-          <th>World</th>
-        </tr>
-        <tr>
-          <td>public</td>
-          <td align="center">Y</td>
-          <td align="center">Y</td>
-          <td align="center">Y</td>
-          <td align="center">Y</td>
-        </tr>
-        <tr>
-          <td>protected</td>
-          <td align="center">Y</td>
-          <td align="center">Y</td>
-          <td align="center">Y</td>
-          <td align="center">N</td>
-        </tr>
-        <tr>
-          <td>empty</td>
-          <td align="center">Y</td>
-          <td align="center">Y</td>
-          <td align="center">N</td>
-          <td align="center">N</td>
-        </tr>
-        <tr>
-          <td>private</td>
-          <td align="center">Y</td>
-          <td align="center">N</td>
-          <td align="center">N</td>
-          <td align="center">N</td>
-        </tr>
-      </table>
-    </p>
-
-    <p> <b>Assignment</b>
-      <ul>
-        <li>Create a new project in IntelliJ</li>
-        <li>Create a package from src and named it <i>goods</i>. In the goods package do
-          <ul>
-            <li>Declare a class in the goods package and name it <i>Widget</i> and give it four member variables, one of each access modifier (i.e. public, protected, ...)</li>
-            <li>Declare another class in the goods package and name it <i>Gizmo</i> and new up a Widget in Gizmo's constructor. Which members of Widget can Gizmo accesss?</li>
-          </ul>
-        </li>
-        <li>Create a package from src and named it <i>stuff</i>. In the stuff package do
-          <ul>
-            <li>Declare a class in the stuff package and name it <i>Doodad</i> and new up a Widget in Doodad's constructor. Which members of Widget can you accesss?</li>
-            <li>Declare another class in the stuff package and name it <i>Thingamajig</i> that extends a Widget.  Do NOT new up a Widget because Thingamajig is a Widget because it extends Widget. Access Widget's fields in Thingamajig's constructor. Which members of Widget can you accesss?</li>
-          </ul>
-        </li>
-      </ul>
-      You should have the following
-      <pre>    src/goods/Widget
-    src/goods/Gizmo
-    src/stuff/Doodad
-    src/stuff/Thingamajig</pre>
-
-    <p>Do not use the <i>static</i> keyword in any of the four classes.</p>
-    </p>
-
-    <hr>
     <h1>Understanding Class Members</h1>
     <p> <b>Objective: </b>Understand how there is one and only one class member</p>
     <p> <b>Prepare: </b> Read
@@ -612,7 +537,7 @@ double number = Double.parseDouble(numberAsText);</pre>
     </p>
 
     <hr>
-    <h1>Interfaces continued</h1>
+    <h1>Comparable Interface</h1>
     <p> <b>Objective: </b>Implement the Comparable interface</p>
     <p> <b>Prepare: </b> Read the Javadoc for the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html">Comparable</a> interface
     </p>
@@ -636,7 +561,7 @@ double number = Double.parseDouble(numberAsText);</pre>
     </p>
 
     <hr>
-    <h1>Interfaces continued again</h1>
+    <h1>Interfaces continued</h1>
     <p> <b>Objective: </b>Use an interface as a type</p>
     <p> <b>Prepare: </b> Read
       <ul>
@@ -645,9 +570,104 @@ double number = Double.parseDouble(numberAsText);</pre>
       </ul>
     </p>
 
-    <p> <b>Assignment</b> None. Will show interfaces as types in default
-      methods with live coding.
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Declare an interface with one abstract method <i>doOneThing</i> (no body) and a default method <i>doAnotherThing</i> (with a body)</li>
+        <li>Declare a class that implements the interface. Let IntelliJ generate the <i>doOneThing</i> method.</li>
+        <li>In the main method of the Main class new up the concrete class and call both methods</li>
+      </ul>
+      Note the term <b>concrete class</b>. A concrete class is a class that can be newed up that implements the interface.
     </p>
+
+    <hr>
+    <h1>Inheritance</h1>
+    <p> <b>Objective: </b>Understand inheritance and polymorphism</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html">Inheritance</a> </li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <p>No assignment, this concept will be explained via live coding</p>
+    </p>
+
+    <hr>
+    <h1>Controlling Access to Members of a Class</h1>
+    <p> <b>Objective: </b>Learn what can access what</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html">Controlling Access to Members of a Class</a> </li>
+      </ul>
+    </p>
+
+    <p><b>Lesson</b>
+      Make sure you understand the access levels
+      <table border="1">
+        <tr>
+          <th>Modifier</th>
+          <th>Class</th>
+          <th>Package</th>
+          <th>Subclass</th>
+          <th>World</th>
+        </tr>
+        <tr>
+          <td>public</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+        </tr>
+        <tr>
+          <td>protected</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">N</td>
+        </tr>
+        <tr>
+          <td>empty</td>
+          <td align="center">Y</td>
+          <td align="center">Y</td>
+          <td align="center">N</td>
+          <td align="center">N</td>
+        </tr>
+        <tr>
+          <td>private</td>
+          <td align="center">Y</td>
+          <td align="center">N</td>
+          <td align="center">N</td>
+          <td align="center">N</td>
+        </tr>
+      </table>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ</li>
+        <li>Create a package from src and named it <i>goods</i>. In the goods package do
+          <ul>
+            <li>Declare a class in the goods package and name it <i>Widget</i> and give it four member variables, one of each access modifier (i.e. public, protected, ...)</li>
+            <li>Declare another class in the goods package and name it <i>Gizmo</i> and new up a Widget in Gizmo's constructor. Which members of Widget can Gizmo accesss?</li>
+          </ul>
+        </li>
+        <li>Create a package from src and named it <i>stuff</i>. In the stuff package do
+          <ul>
+            <li>Declare a class in the stuff package and name it <i>Doodad</i> and new up a Widget in Doodad's constructor. Which members of Widget can you accesss?</li>
+            <li>Declare another class in the stuff package and name it <i>Thingamajig</i> that extends a Widget.  Do NOT new up a Widget because Thingamajig is a Widget because it extends Widget. Access Widget's fields in Thingamajig's constructor. Which members of Widget can you accesss?</li>
+          </ul>
+        </li>
+      </ul>
+      You should have the following
+      <pre>    src/goods/Widget
+    src/goods/Gizmo
+    src/stuff/Doodad
+    src/stuff/Thingamajig</pre>
+
+    <p>Do not use the <i>static</i> keyword in any of the four classes.</p>
+    </p>
+
 
   </body>
 </html>

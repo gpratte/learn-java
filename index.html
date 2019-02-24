@@ -645,6 +645,118 @@ double number = Double.parseDouble(numberAsText);</pre>
     </p>
 
     <hr>
+    <h1>Overriding and Hiding Methods</h1>
+    <p> <b>Objective: </b>Override methods of a parent class</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/override.html">Overriding and Hiding Methods</a>
+          <br>Do read the Instance Methods subsection
+          <br>Do read the Static Methods subsection
+          <br> <b>Do Not Read</b> Interface Methods subsection
+          <br>Do read the Modifiers subsection
+        </li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <p>No assignment, this concept will be explained via live coding</p>
+    </p>
+
+    <hr>
+    <h1>Polymorphism</h1>
+    <p> <b>Objective: </b>Write your own parent/child classes</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/polymorphism.html">Polymorphism</a></li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Create a <i>Parent</i> class with a <i>protected String firstName</i> and <i>protected String lastName</i> instance variables. Let IntelliJ generate an <b>empty constructor</b> (a constructor with no parameters), getter and setter methods. Also write a method that returns the full name (first name concatinated with the last name).</li>
+        <li>Create a <i>Child</i> class that extends the <i>Parent</i> class. The <i>Child</i> class should have a <i>private String middleName</i> instance variable. Let IntelliJ generate n <b>empty constructor</b> (a constructor with no parameters), getter and setter methods. Modify the toString method to print all three variables. Also override the method that returns the full name that includes the middle name.</li>
+        <li>In main do the following:
+          <pre>Parent parent = new Parent();
+parent.setFirstName("funky");
+parent.setLastName("monkey");
+System.out.println(parent.getFullName());
+
+Child child = new Child();
+child.setFirstName("ana");
+child.setMiddleName("bobana");
+child.setLastName("banana");
+System.out.println(child.getFullName());</pre>
+        </li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Hiding Fields and Super</h1>
+    <p> <b>Objective: </b>Write your own parent/child classes using the super keyword</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/hidevariables.html">Hiding Fields</a></li>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/super.html">Using the Keyword super</a></li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Create a <i>Parent</i> class with a <i>private String firstName</i> and <i>private String lastName</i> instance variables. Let IntelliJ generate n constructor that takes both variables as arguments and a toString methods.</li>
+        <li>Create a <i>Child</i> class that extends the <i>Parent</i> class. The <i>Child</i> class should have a <i>private String middleName</i> instance variable. Let IntelliJ generate a constructor that takes all three variables as parameters and a toString methods. Modify the toString method to call the parent's toString method before printing the middle name.</li>
+        <li>In main do the following:
+          <pre>Parent parent = new Parent("Betty", "Boop");
+System.out.println(parent.toString());
+
+Child child = new Child("Tina", "Stamatina", "Fey");
+System.out.println(child.toString());</pre>
+        </li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Object as a Superclass</h1>
+    <p> <b>Objective: </b>Understand the methods of the Object superclass</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/objectclass.html">Object as a Superclass</a>
+          <br> <b>Skip</b> the <i>clone</i> and <i>getClass</i> subsection
+        </li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Create a <i>Parent</i> class with a <i>private String firstName</i> and <i>private String lastName</i> instance variables.</li>
+        <li>Let IntelliJ generate getters, setters, equals, hashcode and toString methods</li>
+        <li>In main new up two parent object and set the first name and last name to be the same. Call the equals method and the hashcode method on the two objects.</li>
+      </ul>
+    </p>
+
+    <hr>
+    <h1>Final/Abstract Classes and Methods</h1>
+    <p> <b>Objective: </b>Do not allow subclassing/overridding with Final and force subclassing/overridding with abstract.</p>
+    <p> <b>Prepare: </b> Read
+      <ul>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/final.html">Writing Final Classes and Methods</a></li>
+        <li> <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">Abstract Methods and Classes</a></li>
+      </ul>
+    </p>
+
+    <p> <b>Assignment</b>
+      <ul>
+        <li>Create a new project in IntelliJ with a Main class with a main method</li>
+        <li>Create am <i>Animal</i> class with an abstract <i>public String speak</i> method</li>
+        <li>Create a <i>Dog</i> class that extends the <i>Animal</i> class and implements the <i>speak</i> method by returning "woof"</li>
+        <li>Create a <i>Cat</i> class that extends the <i>Animal</i> class and implements the <i>speak</i> method by returning "meow"</li>
+        <li>New up the <i>Dog</i> and <i>Cat</i> in main and print out the call to the <i>speak</i> method</li>
+      </ul>
+    </p>
+
+    <hr>
     <h1>Controlling Access to Members of a Class</h1>
     <p> <b>Objective: </b>Learn what can access what</p>
     <p> <b>Prepare: </b> Read

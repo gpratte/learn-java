@@ -1121,6 +1121,118 @@ System.out.println(child.toString());</pre>
     </section>
 
     <hr>
+    <h1>Nested Inner Classes</h1>
+    <section>
+      <p> <b>Objective: </b>Use classes within a class</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html">Nested Classes</a>. Skip the following sections
+            <ul>
+              <li>Shadowing</li>
+              <li>Serialization</li>
+            </ul>
+          </li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/innerclasses.html">Inner Class Example</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Rework the Linked List assignment by moving Node as an inner class.</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Nested Locals Classes</h1>
+    <section>
+      <p> <b>Objective: </b>Use a class in a method</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html">Local Classes</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Lesson</b>
+        Local classes are almost never used. It's easier to read the code using an inner class. We will see that we will create classes in a method when we look at Anonymous classes.
+      </p>
+
+      <p> <b>No Assignment</b></p>
+    </section>
+
+    <hr>
+    <h1>Nested Anonymous Classes</h1>
+    <section>
+      <p> <b>Objective: </b>Use anonymous classes in a method</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/anonymousclasses.html">Anonymous Classes</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Lesson</b>
+        Put the following code in IntelliJ and run it
+
+        <pre>
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class JButtonListenerExample
+{
+    private JFrame frame;
+
+    public void displayJFrame()
+    {
+        frame = new JFrame("Our JButton listener example");
+
+        JButton button = new JButton("Click Me");
+
+        // add the listener to the jbutton to handle the "pressed" event
+        ActionListener al = new MyActionListener();
+        button.addActionListener(al);
+
+        // put the button on the frame
+        frame.getContentPane().setLayout(new FlowLayout());
+        frame.add(button);
+
+        // set up the jframe, then display it
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(300, 200));
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    private class MyActionListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            System.out.println("" + System.currentTimeMillis());
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        JButtonListenerExample example = new JButtonListenerExample();
+        SwingUtilities.invokeLater(new Runnable()
+        {
+            public void run()
+            {
+                example.displayJFrame();
+            }
+        });
+    }
+}
+</pre>
+
+      </p>
+
+      <p> <b>Assignment</b>
+        <br> Change the code to remove the <i>MyActionListener</i> inner class and make it an anonymous class parameter to <i>button.addActionListener</i> method.
+      </p>
+    </section>
+
+    <hr>
     <h1>Template</h1>
     <section>
       <p> <b>Objective: </b>Template</p>

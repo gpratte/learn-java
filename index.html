@@ -1233,6 +1233,177 @@ public class JButtonListenerExample
     </section>
 
     <hr>
+    <h1>Lambda Expressions</h1>
+    <section>
+      <p> <b>Objective: </b>Use Lambda for functional programming</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">Lambda Expressions</a>
+          <br>Read through Approach 6</li>
+        </ul>
+      </p>
+
+      <p> <b>Lesson</b> Live coding</p>
+
+      <p> <b>No Assignment</b>
+      </p>
+    </section>
+
+    <hr>
+    <h1>More Lambda</h1>
+    <section>
+      <p> <b>Objective: </b>Write your own lambdas</p>
+      <p> <b>Assignment: </b>
+        Flesh out the TODOs
+      </p>
+
+<pre>public class RunnableTest {
+    public static void main(String[] args) {
+
+        System.out.println("=== RunnableTest ===");
+
+        // Anonymous Runnable
+        Runnable r1 = new Runnable() {
+
+            @Override
+            public void run() {
+                System.out.println("Hello world one!");
+            }
+        };
+
+        // Lambda Runnable
+        // Runnable r2 = TODO write lambda
+
+        // Run em!
+        r1.run();
+        // TODO uncomment next line to run thread
+        // r2.run();
+
+    }
+}</pre>
+<hr>
+<pre>import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+
+public class ComparatorTest {
+
+    public static void main(String[] args) {
+
+        List<Person> persons = new LinkedList<>();
+        Person person = new Person();
+        person.setSurName("Tom Thumb");
+        persons.add(person);
+        person = new Person();
+        person.setSurName("Humpty Dumpty");
+        persons.add(person);
+        person = new Person();
+        person.setSurName("Jack Horner");
+        persons.add(person);
+
+        // Sort with Inner Class
+        Collections.sort(persons, new Comparator<Person>() {
+            public int compare(Person p1, Person p2) {
+                return p1.getSurName().compareTo(p2.getSurName());
+            }
+        });
+
+        System.out.println("=== Sorted SurName ===");
+        for (Person p : persons) {
+            p.printName();
+        }
+
+        Collections.shuffle(persons);
+
+        // Use Lambda instead
+        System.out.println("=== Sorted SurName ===");
+        // Collections.sort(persons, TODO write lambda);
+
+        for (Person p : persons) {
+            p.printName();
+        }
+
+
+    }
+
+    static class Person {
+        private String surName;
+
+        public String getSurName() {
+            return surName;
+        }
+
+        public void setSurName(String surName) {
+            this.surName = surName;
+        }
+
+        public void printName() {
+            System.out.println(surName);
+        }
+    }
+}</pre>
+
+    </section>
+
+    <hr>
+    <h1>Method References in Lambda expressions</h1>
+    <section>
+      <p> <b>Objective: </b>Use a method reference instead of calling the method</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/methodreferences.html">Method References</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        Change the System.out.println method call to be a method reference
+      </p>
+
+<pre>import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+
+        List<String> names =  Arrays.asList("Anna", "Bob", "Charlie");
+
+        System.out.println("for loop\t");
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+        System.out.println("for each using lambda");
+        names.forEach((name) -> System.out.println(name));
+
+        System.out.println("for each using lambda method reference\t");
+        names.forEach(TODO use method reference);
+    }
+}
+</pre>
+    </section>
+
+    <hr>
+    <h1>Enums</h1>
+    <section>
+      <p> <b>Objective: </b>Use enums when having a predefined list</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html">Enum Types</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new project in IntelliJ</li>
+          <li>Create a enum class for the months for the year</li>
+          <li>Add a method that returns the number of days for a month. Remember to calculate leap year!</li>
+          <li>Also remember to write tests for the enum class</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
     <h1>Template</h1>
     <section>
       <p> <b>Objective: </b>Template</p>
@@ -1249,6 +1420,7 @@ public class JButtonListenerExample
         </ul>
       </p>
     </section>
+
 
 
   </body>

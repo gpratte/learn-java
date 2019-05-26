@@ -1404,6 +1404,144 @@ public class Main {
     </section>
 
     <hr>
+    <h1>Collections - Interfaces</h1>
+    <section>
+      <p> <b>Objective: </b>Get familar with several interfaces</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/intro/index.html">Introduction to Collections</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/index.html">Interfaces</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/collection.html">The Collection Interface</a></li>
+        </ul>
+      </p>
+
+      <p> <b>No Assignment - need concrete classes</b></p>
+
+      <p> <b>Lesson: look at javadoc</b></p>
+    </section>
+
+    <hr>
+    <h1>Collections - Lists</h1>
+    <section>
+      <p> <b>Objective: </b>Use List to order by position</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/list.html">The List Interface</a>
+          <br>Skip the "Range-View Operation" section</li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Using an <i>ArrayList</i> call the many of the methods at the end of the page (e.g. <i>sort</i>, <i>shuffle</i>, <i>reverse</i>, ...) </li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Collections - Sets</h1>
+    <section>
+      <p> <b>Objective: </b>Understanding Set Interface</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/set.html">The Set Interface
+</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Using <i>HashSet</i>s call all the methods of the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Set.html">Set</a> interface (except <i>spliterator</i>)</li>
+          <li>Remember you can print a Set using <i>System.out.println</i> </li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Ordering (Comparing)</h1>
+    <section>
+      <p> <b>Objective: </b>Order objects in a List or Set</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/order.html">Object Ordering</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Create a <i>Widget</i> class with <i>height</i> and <i>weight</i> fields</li>
+          <li>New up some <i>Widget</i>s and add to a list or set</li>
+          <li>Call the <i>sort</i> method on the list or set. What happens?</li>
+          <li>Implement <i>Comparable</i> in the <i>Widget</i> class on the height.</li>
+          <li>Implement the <i>toString</i> method in <i>Widget</i> </li>
+          <li>Now sort the list or set. It works.</li>
+          <li>Enhance the comparison in the <i>Widget</i> class to sort by height but if equal then sort on weight</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Collections - Sorted Sets</h1>
+    <section>
+      <p> <b>Objective: </b>Sort a Set</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/interfaces/sorted-set.html">The SortedSet Interface</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Use a <i>TreeSet</i> for a concrete implementation of a <i>SortedSet</i> </li>
+          <li>Add <i>String</i>s to the set. Print out the set. Why is it that Strings are sorted? </li>
+          <li>Create a new class <i>Thingy</i> with a field <i>max</i> </li>
+          <li>New up a <i>Thingy</i> and add it to the set and print out the set</li>
+          <li>Run the program, what happens?</li>
+          <li>Make the program work and add several <i>Thingy</i>s to the set. </li>
+          <li>What is the Big O for adding to a <i>TreeSet</i>? </li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Comparing and Equals (and HashCode)</h1>
+    <section>
+      <p> <b>Objective: </b>Understand what "consistent with equals" means</p>
+      <p>
+        <b>Lesson:</b>
+        Notice that the javadocs for <a href="https://docs.oracle.com/javase/8/docs/api/java/util/TreeSet.html">TreeSet</a> says "Note that the ordering maintained by a set (whether or not an explicit comparator is provided) must be <b>consistent with equals</b> if it is to correctly implement the Set interface."
+
+        <p>The <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html">Interface Comparable&lt;T&gt;</a> says
+
+          <p style="text-indent: 4.0em;">
+            The natural ordering for a class C is said to be consistent with equals if and only if e1.compareTo(e2) == 0 has the same boolean value as e1.equals(e2) for every e1 and e2 of class C.
+          </p>
+          <p style="text-indent: 4.0em;">
+            It is strongly recommended (though not required) that natural orderings be consistent with equals. This is so because sorted sets (and sorted maps) without explicit comparators behave "strangely" when they are used with elements (or keys) whose natural ordering is inconsistent with equals. In particular, such a sorted set (or sorted map) violates the general contract for set (or map), which is defined in terms of the equals method.
+          </p>
+        </p>
+        <p>There is also a contract for the relationship between <i>equals</i> and <i>hashCode</i>. See <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--">hashCode</a> javadoc
+
+          <p style="text-indent: 4.0em;">
+            <ul>
+              <li>Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer, provided no information used in equals comparisons on the object is modified. This integer need not remain consistent from one execution of an application to another execution of the same application.</li>
+              <li>If two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result.</li>
+              <li>It is not required that if two objects are unequal according to the equals(java.lang.Object) method, then calling the hashCode method on each of the two objects must produce distinct integer results. However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hash tables.</li>
+            </ul>
+        </p>
+
+        </p>
+      </p>
+      <p> <b>Assignment</b>
+        Update the previous assignment by implementing <i>equals</i> and <i>hashCode</i>
+      </p>
+    </section>
+
+    <hr>
     <h1>Template</h1>
     <section>
       <p> <b>Objective: </b>Template</p>

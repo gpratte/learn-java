@@ -1601,6 +1601,24 @@ public class Main {
     </section>
 
     <hr>
+    <h1>Stack</h1>
+    <section>
+      <p> <b>Objective: </b>Use a stack</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html">The Stack Javadoc</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Use a <i>LinkedList</i> and call the methods for a <i>Stack</i> (i.e. push and pop)</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
     <h1>Map</h1>
     <section>
       <p> <b>Objective: </b>Use a map for storing key/value pairs</p>
@@ -1691,6 +1709,70 @@ public class Main {
       </p>
 
       <p> <b>No Assignment</b>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Collection functions</h1>
+    <section>
+      <p> <b>Objective: </b>Use functional programming on collections</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/streams/index.html">Aggregate Operations</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/collections/streams/reduction.html">The The Stream.collect Method section</a> </li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <li>Create a new maven project in IntelliJ</li>
+        <li> Work through some of the Java functional exercises on
+        <a href="https://codingbat.com/java/Functional-2">CodingBat</a>
+        and put them as classes in your project.
+        </li>
+        <li>Work through <a href="https://code-exercises.com/programming/medium/19/filter-strings-java-8-lambdas-and-streams">Filter Strings (Java 8 Lambdas and Streams)</a> and put the answer as a class in your project</li>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Stream Collector</h1>
+    <section>
+      <p> <b>Objective: </b>Use functional programming to collect the results of a stream</p>
+      <p> <b>Lesson: </b> The following is a snippet from <a href="https://docs.oracle.com/javase/tutorial/collections/streams/reduction.html">The Stream.collect Method section</a>
+      </p>
+
+      <p>
+<pre>The collect operation is best suited for collections. The following example puts the names of the male members in a collection with the collect operation:
+
+List<String> namesOfMaleMembersCollect = roster
+    .stream()
+    .filter(p -> p.getGender() == Person.Sex.MALE)
+    .map(p -> p.getName())
+    .collect(Collectors.toList());
+</pre>
+      </p>
+
+      <p> <b>Assignment</b>
+        <li>Create a new maven project in IntelliJ</li>
+        <li>Write functional code that steams a collection, filters, maps and collects as a list</li>
+        <li>Write functional code that steams a collection, filters, maps and collects as a set</li>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Template</h1>
+    <section>
+      <p> <b>Objective: </b>Template</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="http://www.example.com">Example.com</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li></li>
+        </ul>
       </p>
     </section>
 

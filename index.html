@@ -1687,7 +1687,7 @@ public class Main {
     <hr>
     <h1>Wrapper Implementations</h1>
     <section>
-      <p> <b>Objective: </b>Template</p>
+      <p> <b>Objective: </b>Use classes that wrap collections</p>
       <p> <b>Prepare: </b> Read
         <ul>
           <li> <a href="https://docs.oracle.com/javase/tutorial/collections/implementations/wrapper.html">Wrapper Implementations</a></li>
@@ -1701,7 +1701,7 @@ public class Main {
     <hr>
     <h1>Convenience Implementations</h1>
     <section>
-      <p> <b>Objective: </b>Template</p>
+      <p> <b>Objective: </b>Some impelementations of collections</p>
       <p> <b>Prepare: </b> Read
         <ul>
           <li> <a href="https://docs.oracle.com/javase/tutorial/collections/implementations/convenience.html">Convenience Implementations</a></li>
@@ -1807,7 +1807,7 @@ List<String> namesOfMaleMembersCollect = roster
     <hr>
     <h1>File Operations</h1>
     <section>
-      <p> <b>Objective: </b>Template</p>
+      <p> <b>Objective: </b>Read and write files</p>
       <p> <b>Prepare: </b> Read
         <ul>
           <li> <a href="https://docs.oracle.com/javase/tutorial/essential/io/fileOps.html">File Operations</a></li>
@@ -1871,6 +1871,70 @@ List<String> namesOfMaleMembersCollect = roster
           <li>Read json Widget from a different file an convert to a Java object</li>
         </ul>
       </p>
+    </section>
+
+    <h1>Lombok</h1>
+    <section>
+      <p> <b>Objective: </b>User lombok for constructors and getters/setters</p>
+      <p> <b>Prepare: </b> Watch the video in <a href="https://projectlombok.org/">https://projectlombok.org/</a>
+      </p>
+
+      <p>Note that for IntelliJ you have todo
+        <ol>
+          <li>Add the Lombok plugin</li>
+          <li>Enable annotations</li>
+        </ol>
+      </p>
+
+      <p> <b>Assignment</b> add lombok annotation to your previous
+        project that uses jackson.
+      </p>
+    </section>
+
+    <hr>
+    <h1>Put It All Together</h1>
+    <section>
+      <p> <b>Objective: </b>Time to write some code</p>
+      <p> <b>Assignment:</b> Write a producer program which writes
+      telematics to files and write a consumer program which reads
+      the files, calculates some averages, and writes to an html file.
+       </p>
+      <h3>Producer</h3>
+      <p>The producer program shoud run in an infinite loop taking
+        the following input from the console
+        <ol>
+          <li>VIN</li>
+          <li>Odometer miles</li>
+          <li>Gallons of fuel remaining</li>
+          <li>Current date/time</li>
+        </ol>
+        These values should be written to a file with the name being
+        the current time in milliseconds and a suffix "json". For example
+        <br> <i>1564931382194.json</i>
+       </p>
+       <h3>Consumer</h3>
+       <p>The consumer program shoud run in an infinite loop reading
+         the files that were written by the producer and processing them.
+         After processing the telematics file delete it from the file system.
+       </p>
+       <p>After processing a telematics json file the consumer should
+         write to an html. The top of the html file should show
+         <ul>
+           <li>The number of telematics entrys</li>
+           <li>The average odometer reading</li>
+           <li>The average fuel remaining</li>
+         </ul>
+         The rest of the html file should be a list of the individual
+         telematics entries (most recent on top).
+       </p>
+       <p>Note that the consumer should write an empty html file when
+         first starting up and then overwrite the file as it processes
+         the telematic entries.
+         <br>Put a META refresh in the html file so
+         that it refreshes by itself.
+          <br>Also note that the consumer should sleep
+         (maybe for 500 milliseconds) in the loop.
+       </p>
     </section>
 
     <hr>

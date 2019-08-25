@@ -1939,6 +1939,89 @@ List<String> namesOfMaleMembersCollect = roster
     </section>
 
     <hr>
+    <h1>Concurrency</h1>
+    <section>
+      <p> <b>Objective: </b>Use Threads for concurrent code execution</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/index.html">Lesson: Concurrency</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html">Processes and Threads</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/threads.html">Thread Objects</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html">Defining and Starting a Thread</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html">Pausing Execution with Sleep</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Code a thread that writes to an html file the current time</li>
+          <li>Have the thread sleep 900 milliseconds</li>
+          <li>Look at the html file in a browser and see the time change</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Concurrency II</h1>
+    <section>
+      <p> <b>Objective: </b>Wait for another thread to complete</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/join.html">Joins</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>The main method of a program is running on a thread.
+              Print the name of the thread that main is running on</li>
+          <li>In main print that another thread is about to start and then start another thread and</li>
+          <ul>
+            <li>have main wait for the other thread to complete</li>
+            <li>have the other thread print out the name of the thread</li>
+            <li>have the other print that it is about to sleep, then sleep for 1 seconds,
+                then print that sleep is over and then return (which ends the thread)</li>
+          </ul>
+          <li>In main print that main is running again now that the other thread has ended</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Synchronization</h1>
+    <section>
+      <p> <b>Objective: </b>Synchronize access to data</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/sync.html">Synchronization</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html">Thread Interference</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html">Memory Consistency Errors</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html">Synchronized Methods</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Write the SynchronizedCounter class</li>
+          <li>In the increment and decrement methods</li>
+          <ul>
+            <li>add a println when the method is entered</li>
+            <li>prints the thread name</li>
+            <li>sleep for 1 second</li>
+            <li>println when the method exits</li>
+          </ul>
+          <li>New up the class in the main method</li>
+          <li>Create 2 threads that call the increment and decrement methods on
+          instance of the SynchronizedCounter for 15 seconds each</li>
+        </ul>
+      </p>
+      <p>See how the sychronize methods only allow one thread to be in the method at a time?</p>
+    </section>
+
+    <hr>
     <h1>Template</h1>
     <section>
       <p> <b>Objective: </b>Template</p>

@@ -1999,6 +1999,7 @@ List<String> namesOfMaleMembersCollect = roster
           <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html">Thread Interference</a></li>
           <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html">Memory Consistency Errors</a></li>
           <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html">Synchronized Methods</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/locksync.html">Intrinsic Locks and Synchronization</a></li>
         </ul>
       </p>
 
@@ -2019,6 +2020,59 @@ List<String> namesOfMaleMembersCollect = roster
         </ul>
       </p>
       <p>See how the sychronize methods only allow one thread to be in the method at a time?</p>
+    </section>
+
+    <hr>
+    <h1>Thread Wait and Notify</h1>
+    <section>
+      <p> <b>Objective: </b>Coordinate threading via wait and notify</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/guardmeth.html">Guarded Blocks</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Lesson:</b> "A more efficient guard invokes Object.wait to suspend the current thread.
+        The invocation of wait does not return until another thread has issued a notification that some special event may have occurred."</p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Create the Producer, Consomer and Main classes and run Main</li>
+          <li>Change the Consumer for loop to a while loop (easier to understand if you ask me)</li>
+          <li>Import the apache commons lang3 (commons-lang3) library and use RandomStringUtils
+          to generate a random string instead of using the array of predfined strings. </li>
+          <li>Run Main again</li>
+          <li>Can you get it to run with 3 producers and 2 consumers?</li>
+        </ul>
+      </p>
+
+      <p> <b>Lesson:</b> Running with a different number of producers and consumers
+         is problematic. We want to know when all the producers are done and then
+      stop the consumers. We will see how to do this better when we learn about
+      high level concurrency. </p>
+
+    </section>
+
+    <hr>
+    <h1>Immutability</h1>
+    <section>
+      <p> <b>Objective: </b>Employ immutable objects for avoid threading problems</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/immutable.html">Immutable Objects</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/syncrgb.html">A Synchronized Class Example</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/imstrat.html">A Strategy for Defining Immutable Objects</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Create a Foo object that is immutable using IntelliJ's Code -> Generate</li>
+          <li>Create a Bar object that is immutable using Lombok annotation(s)</li>
+        </ul>
+      </p>
     </section>
 
     <hr>

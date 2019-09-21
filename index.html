@@ -2076,6 +2076,50 @@ List<String> namesOfMaleMembersCollect = roster
     </section>
 
     <hr>
+    <h1>High Level Concurrency - ReentrantLocks</h1>
+    <section>
+      <p> <b>Objective: </b>Use reentrant locks instead of synchronized</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> Java tutorial <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/highlevel.html">High Level Concurrency Objects</a></li>
+          <li> Look at the java.util.concurrent.locks package Javadoc at <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/package-summary.html">java.util.concurrent.locks</a></li>
+          <li> Look at the ReentrantLock class Javadoc at <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html">Class ReentrantLock</a></li>
+          <li> Java tutorial <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/newlocks.html">Lock Objects</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>In a previous assignment you wrote a SynchronizedCounter class.</li>
+          <li>In that project creae a <i>lock</i> branch</li>
+          <li>Remove <i>synchronized</i> from the method signatures and change to
+            use a instance variable of type ReentrantLock. Must have a matching
+            unlock method call to every lock method call.</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>High Level Concurrency - ReentrantReadWriteLocks</h1>
+    <section>
+      <p> <b>Objective: </b>Use reentrant read/write locks for muliple readers and writers</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li>Look at the ReentrantReadWriteLock class Javadoc at <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/locks/ReentrantLock.html">Class ReentrantReadWriteLock</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>In Thread Wait and Notify lesson you used a consumer and producer for messages</li>
+          <li>In that project creae a <i>lock</i> branch</li>
+          <li>See if you can use ReentrantReadWriteLock for the read and write locks.</li>
+          <li>Google ReentrantReadWriteLock for examples</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
     <h1>Template</h1>
     <section>
       <p> <b>Objective: </b>Template</p>

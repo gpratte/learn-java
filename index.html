@@ -2112,11 +2112,146 @@ List<String> namesOfMaleMembersCollect = roster
       <p> <b>Assignment</b>
         <ul>
           <li>In Thread Wait and Notify lesson you used a consumer and producer for messages</li>
-          <li>In that project creae a <i>lock</i> branch</li>
-          <li>See if you can use ReentrantReadWriteLock for the read and write locks.</li>
+          <li>In that project create a <i>lock</i> branch</li>
+          <li>See if you can use ReentrantReadWriteLock for the read and write locks</li>
           <li>Google ReentrantReadWriteLock for examples</li>
         </ul>
       </p>
+    </section>
+
+    <hr>
+    <h1>High Level Concurrency - Executors</h1>
+    <section>
+      <p> <b>Objective: </b>Separate thread management and creation from the rest of the application</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> Java tutorial <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/executors.html">Executors</a></li>
+          <li> Java tutorial <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/exinter.html">Executor Interfaces</a></li>
+          <li> Java tutorial <a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/pools.html">Thread Pools</a></li>
+        </ul>
+      </p>
+
+      <div> <b>Assignment</b>
+        <p>IBM has traders on Wall Street floor that acquire the rights to buy x number of shares of a stock. When a trader acquires the rights the trader creates/updates a stock information. Financial planners and individual investors can buy stock if there are shares available.</p>
+
+        <p>Create a new maven project in IntelliJ</p>
+
+        <p> <b>Stock</b> class
+            <ul>
+              <li>String tradingName</li>
+              <li>int currentPrice</li>
+              <li>int numShares</li>
+            </ul>
+        </p>
+
+        <p> <b>Trader</b> class
+            <ul>
+              <li>String name</li>
+              <li>LocalDateTime purchasedAt</li>
+              <li>int numShares</li>
+              <li>int price</li>
+            </ul>
+        </p>
+
+        <p> <b>TraderService</b> interface
+          <div style="margin-left:20px">
+            <pre>public interface TraderService {
+      int addShares(String stockName, int numShares, int price);
+      Trade buyShares(String traderName, String stockName, int numShares) throws SharesException;
+      List&lt;Trade&gt; getTrades();
+}</pre>
+          </div>
+        </p>
+
+        <p> <b>TraderServiceImpl</b> class
+          <div style="margin-left:20px">
+            <p>Implements the TraderService interface. It should use the following instance variables.
+              <pre>private Map<String, Stock> stocks = new HashMap<>();
+private List<Trade> trades = new ArrayList<>();</pre>
+                The key to the stocks map should be the trading name of the stock.
+          </div>
+        </p>
+
+        <p> <b>TraderService.addShares</b> method
+          <ul>
+            <li>synchronized to avoid other methods manipulating the same stock</li>
+            <li>Thread.sleep for 0 to 500 milliseconds</li>
+            <li>creates the stock if not already created</li>
+            <li>increments the number of available shares</li>
+            <li>sets the stock price</li>
+          </ul>
+        </p>
+
+        <p> <b>TraderService.buyShares</b> method
+          <ul>
+            <li>synchronized to avoid other methods manipulating the same stock</li>
+            <li>Thread.sleep for 0 to 500 milliseconds</li>
+            <li>decrement the number of available shares</li>
+            <li>creates a Trade and adds the Trade to a list</li>
+            <li>once the number of shares have been decremented and before the Trade is created allow calls to the other methods through</li>
+            <li>throws SharesException if the stock cannot be found or if there are not enough shares to sell</li>
+            <li>returns the Trade</li>
+          </ul>
+        </p>
+
+        <p> <b>TraderService.getTrades</b> method
+          <ul>
+            <li>is not synchronized because it's ok if the current trade is not yet in the list</li>
+            <li>returns the trades</li>
+          </ul>
+        </p>
+
+        <p> <b>AddShares</b> class
+          <div style="margin-left:20px">
+            Create an AddShares Callable class that has the following variables
+              <ul>
+                <li>TraderService traderService</li>
+                <li>String stockName</li>
+                <li>int numShares</li>
+                <li>int price</li>
+              </ul>
+              This class calls the traderService.addShares method. It should return a String something like
+              <pre>"Added stock IBM, 2 shares at $41 total shares 125"</pre>
+            </div>
+        </p>
+
+        <p> <b>BuyShares</b> class
+          <div style="margin-left:20px">
+            Create an BuyShares Callable class that has the following variables
+              <ul>
+                <li>TraderService traderService</li>
+                <li>String traderName</li>
+                <li>String stockName</li>
+                <li>int numShares</li>
+              </ul>
+              This class calls the traderService.buyShares method. This class should return a String something like
+              <pre>"Dave bought IBM, 9 shares at $91 at 2019-09-29T15:33:58.457"</pre>
+              or
+              <pre>Could not buy 20 shares of IBM</pre>
+            </div>
+        </p>
+
+        <p> <b>main</b> method
+          <div style="margin-left:20px">
+            Write a multi-threaded test that does the following
+            <ul>
+              <li>Only trades in IBM stock (i.e. private static final String)</li>
+              <li>Create a static final List variable of 3 strings which will be used for the trader names. Initialize the static variables but DO NOT initialize them in main method (i.e. initialize them before main runs).</li>
+              <li>Creates a List of Callable
+                <pre>          List&lt;Callable&lt;String&gt;&gt; stockActions = new LinkedList&lt;&gt;();</pre></li>
+              <li>In a for loop add 10 AddShares classes to the List. Randomize the number of shares and price.</li>
+              <li>In a for loop add 10 BuyShares classes to the List. Randomize the number of shares and trader name.</li>
+              <li>Create an ExecutorService with a fixed thread pool of 5 threads and invoke all the Callables
+                <pre>        ExecutorService executor = Executors.newFixedThreadPool(5);
+        List&lt;Future&lt;String&gt;&gt; futures = executor.invokeAll(stockActions);</pre></li>
+              <li>Loop through the Futures printing out the the results the get method</li>
+              <li>Shutdown the executor</li>
+              <li>Print the list of trades</li>
+            </ul>
+          </div>
+        </p>
+
+      </div>
     </section>
 
     <hr>

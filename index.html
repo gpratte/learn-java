@@ -2263,6 +2263,125 @@ private List<Trade> trades = new ArrayList<>();</pre>
     </section>
 
     <hr>
+    <h1>Date/Time Overview</h1>
+    <section>
+      <p> <b>Objective: </b>Get some perspective</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/index.html">Date Time</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/overview/index.html">Date-Time Overview</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/overview/design.html">Date-Time Design Principles</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/overview/packages.html">The Date-Time Packages</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/overview/naming.html">Method Naming Conventions</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Play with the some of the methods from the Method Naming Conventions page</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Standard Calendar (java.time)</h1>
+    <section>
+      <p> <b>Objective: </b>Use the standard (Gregorian) calendar</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/index.html">Standard Calendar</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/overview.html">Overview</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/enum.html">DayOfWeek and Month Enums</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/date.html">Date Classes</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Print out the day of the week (e.g. Monday) for your last 10 birthdays</li>
+          <li>Print out how many days between your birthdays for the last ten years</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Date/Time</h1>
+    <section>
+      <p> <b>Objective: </b>Figure out time for different time zones</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/datetime.html">Date and Time Classes</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/timezones.html">Time Zone and Offset Classes</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/format.html">Parsing and Formatting
+</a> </li>
+        </ul>
+      </p>
+
+      <div>
+        <p> <b>Lesson</b></p>
+        <p>Take note that most company have their servers timezone set to UTC-0. Hence
+           it's up to the application to convert to a timezone. For example charging
+           customer credit cards once the clock becomes 12:00 A.M. Eastern time zone.
+         </p>
+      </div>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Write an application that shows flight information for a flight on Valentine's day leaving New York at noon and arriving in Los Angeles. Fight time is 5 hours and 23 minutes. What time does the flight arrive in L.A.?</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>Instant/Period/Duration</h1>
+    <section>
+      <p> <b>Objective: </b>Calculate time duration, time before/after an instance</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/instant.html">Instant Class</a></li>
+        </ul>
+      </p>
+      <p> <b>Prepare: </b> Skim
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/temporal.html">The Temporal Package</a></li>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/adjusters.html">Temporal Adjuster</a></li>
+        </ul>
+      </p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/period.html">Period and Duration</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        <ul>
+          <li>Create a new maven project in IntelliJ</li>
+          <li>Play with Instant, Period and Duration</li>
+        </ul>
+      </p>
+    </section>
+
+    <hr>
+    <h1>java.util.Date (legacy)</h1>
+    <section>
+      <p> <b>Objective: </b>Understand why java.util.Date sucks</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://docs.oracle.com/javase/tutorial/datetime/iso/legacy.html">Legacy Date-Time Code</a></li>
+        </ul>
+      </p>
+
+      <p> <b>Lession</b> Try to avoid using Date (it may be hard at work)
+      </p>
+
+      <p> <b>No Assignment</b>
+      </p>
+    </section>
+
+    <hr>
     <h1>Template</h1>
     <section>
       <p> <b>Objective: </b>Template</p>
@@ -2279,6 +2398,8 @@ private List<Trade> trades = new ArrayList<>();</pre>
         </ul>
       </p>
     </section>
+
+
   </div>
   </div>
   </div>

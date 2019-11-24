@@ -2382,6 +2382,60 @@ private List<Trade> trades = new ArrayList<>();</pre>
     </section>
 
     <hr>
+    <h1>Spring Boot</h1>
+    <section>
+      <p> <b>Objective: </b>Write your first Spring Boot application</p>
+      <p> <b>Assignment:</b> Work through the <a href="https://spring.io/guides/gs/spring-boot/">Building an Application with Spring Boot</a> tutorial</p>
+      <p>Follow these steps
+      <ol>
+        <li>In IntelliJ create a maven project from the org.apache.maven.archetypes:maven-archetype-quickstart.
+           Put in 'hello' for the group Id and put "myfirstspringboot" for the artifact id.</li>
+        <li>Delete the App file and the AppTest classes</li>
+        <li>You will follow the "<b>start from scratch</b>" instruction but do the <b>Build with Maven</b>
+           (not <b>Build with Gradle</b> nor <b>Build with your IDE</b>)</li>
+        <li>You do not need to create the src/main/java/hello directory because it already exists</li>
+        <li>Replace the contents of the pom.xml file with the one in the tutorial.
+            Note that whenever you touch the pom.xml IntelliJ will prompt you to reimport.
+            Make sure you do this!</li>
+        <li>Now you can work through the tutorial</li>
+      </ol>
+      </p>
+      <p>Some other tidbits
+        <ul>
+          <li>After you run the application from the command line you will have to
+          stop it by pressing and holding the control button and then pressing the c key </li>
+          <li>You can also run the application class in IntelliJ
+            by right clicking on it and then click on Run
+           (and press the stop button when you want to stop the program)</li>
+          <li>You can run a test in IntelliJ by right clicking on it and then click on Run. Make
+            sure the main Spring Boot Application is not running when you run a test.</li>
+          <li>Skip the Groovy part at the end.</li>
+        </ul>
+      </p>
+      <p>Push your code to github</p>
+    </section>
+
+    <hr>
+    <h1>Building a RESTful Web Service</h1>
+    <section>
+      <p> <b>Assignment:</b> Work through the <a href="https://spring.io/guides/gs/rest-service/">Building a RESTful Web Service</a> tutorial</p>
+      <p>Do not do <b>start from scratch</b> but instead do the <b>skip the basics</b>.
+        After cloning the repo do the following:
+        <ol>
+          <li>Copy (recursively) the initial directory to whereever you put your projects and rename it "myrestservice"</li>
+          <li>Delete everything in root of the myrestservice directory that begins with "gradle"</li>
+          <li>Import myrestservice into IntelliJ by clicking File -> Open and then choosing the pom.xml</li>
+          <li>Create a gitignore file by visiting <a href="https://www.gitignore.io/">gitignore.io</a> and type in "Java", "Maven" and "IntelliJ".
+             Save in the root of your project as ".gitignore"</li>
+          <li>Add a README.md file and put a description of the project in it</li>
+          <li>Create a github repo (without a README or gitignore) called my-rest-service and config it for your new project</li>
+          <li>You are now ready to work through the tutorial starting at <b>Create a resource representation class</b> </li>
+        </ol>
+      </p>
+      <p>Push your code to github</p>
+    </section>
+
+    <hr>
     <h1>Template</h1>
     <section>
       <p> <b>Objective: </b>Template</p>

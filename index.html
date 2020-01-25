@@ -2517,10 +2517,212 @@ private List<Trade> trades = new ArrayList<>();</pre>
     </section>
 
     <hr>
+    <h1>H2 Embedded Database</h1>
+    <section>
+      <p> <b>Objective: </b>Configure H2 database when Spring Boot starts</p>
+      <p>In the JDBC session the code used an embedded H2 database.
+         Time to learn more about how to use H2.</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+        </ul>
+      </p>
+
+      <p> <b>Assignment</b>
+        Work through <a href="https://www.baeldung.com/spring-boot-h2-database">Spring Boot With H2 Database</a>
+        in your own project and push the code to github.
+      </p>
+    </section>
+
+    <hr>
+    <h1>JDBC mappers</h1>
+    <section>
+      <p> <b>Objective: </b>
+        <ul>
+          <li>Use prepared statements for sql</li>
+          <li>Use mappers for converting result sets to objects.</li>
+        </ul>
+      </p>
+      <p>Setup: Use <a href="https://start.spring.io/">Spring Initializr</a>.
+        Use the defaults except change Artifact to mapper.
+        <br>Add the following dependencies
+        <ul>
+          <li>JDBC API</li>
+          <li>H2</li>
+        </ul>
+      </p>
+
+      <p> <h4>H2 configuration</h4>
+        Add a schema.sql file in src/main/resources
+<pre>DROP TABLE IF EXISTS person;
+
+CREATE TABLE person (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  name VARCHAR(250) NOT NULL,
+  dob DATE NOT NULL,
+);</pre>
+      </p>
+
+      <p> <h4>Person</h4>
+        In the com.example.mapper package create a Person object that has the same fields of the person table (use LocalDate for the dob).
+        <br>
+        Here is the Person class with just the fields. Use IntelliJ's code generation feature to generate
+        <ul>
+          <li>getters/setters</li>
+          <li>equals/hashCode (but exclude it id field)</li>
+          <li>toString</li>
+        </ul>
+
+        <pre>package com.example.mapper;
+import java.time.LocalDate;
+public class Person {
+    private int id;
+    private String name;
+    private LocalDate dob;
+    // add getters, setters, equals, hashCode, toString
+}</pre>
+      </p>
+
+      <p> <h4>PersonRepository</h4>
+        Create a PersonRepository interface with an add method and a find method.
+        <pre>void add(Person person);
+List&lt;Person&gt; find();</pre>
+      </p>
+
+      <p> <h4>PersonRepositoryImpl</h4>
+        Create a PersonRepositoryImpl Repository class that implements the PersonRepository interface.
+        <br>
+        Use Spring's constructor injection for the JdbcTemplate.
+
+<pre>@Repository public class PersonRepositoryImpl implements PersonRepository {
+    private final JdbcTemplate jdbcTemplate;
+    public PersonRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+    @Override
+    public void add(Person person) {}
+    @Override
+    public List&lt;Person&gt; find() {return null;}
+}</pre>
+      </p>
+
+      <p>
+        <br>
+        Take a detour and read <a href="https://www.baeldung.com/spring-component-repository-service">
+          @Component vs @Repository and @Service in Spring</a>
+          <br>&nbsp;
+      </p>
+
+      <p> <h4>Prepared Statements and Mappers</h4>
+        A common way to write spring jdbc with the JdbcTemplate is to use prepared statements for sql and mappers to map results to objects.
+        <br>
+        The add method will use the JdbcTemplate.update method that uses a prepared statement under the covers.
+        <br>
+        The find method will use the JdbcTemplate.query method that uses a mapper (inner class).
+
+<pre>
+@Repository
+public class PersonDaoImpl implements PersonDao {
+
+    private static final Logger log = LoggerFactory.getLogger(PersonDaoImpl.class);
+
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
+    @Override
+    public void add(Person person) {
+        log.info("adding " + person);
+        jdbcTemplate.update("INSERT INTO person(name, dob) VALUES (?,?)",
+                person.getName(),
+                person.getDob());
+    }
+
+    @Override
+    public List<Person> find() {
+        List<Person> persons = this.jdbcTemplate.query(
+                "select * from person",
+                new PersonMapper());
+        log.info("Found " + persons.size() + " persons");
+        return persons;
+    }
+
+    private static class PersonMapper implements RowMapper<Person> {
+        @Override
+        public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Person person = new Person();
+            person.setId(rs.getInt("id"));
+            person.setName(rs.getString("name"));
+            person.setDob(rs.getDate("dob").toLocalDate());
+            return person;
+        }
+    }
+}</pre>
+
+Why is it important that the query use a prepared statement (under the covers)?
+      </p>
+
+      <p> <h4>PersonRepositoryTest</h4>
+        Now write a PersonRepositoryTest
+<pre>
+package com.example.mapper;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@SpringBootTest
+class PersonRepositoryImplTest {
+
+    Random random = new Random();
+
+    @Autowired
+    PersonRepository personRepository;
+
+    @Test
+    public void testCreate() {
+        Person person = this.createRandomPerson();
+        personRepository.add(person);
+        List<Person> persons = personRepository.find();
+        assertNotNull(persons);
+        assertTrue(persons.size() > 0);
+        boolean found = false;
+        for (Person p : persons) {
+            if (p.equals(person)) {
+                found = true;
+                break;
+            }
+        }
+
+        assertTrue(found, "Could not find " + person);
+    }
+
+    private Person createRandomPerson() {
+        Person person = new Person();
+        person.setName(Integer.toString(random.nextInt()));
+        person.setDob(LocalDate.now());
+        return person;
+    }
+}
+</pre>
+      </p>
+
+    </section>
+
+    <hr>
     <h1>PostgreSQL (optional)</h1>
     <section>
       <p> <b>Objective: </b>Create a database with user/password permission</p>
-
+      <p>At some point we will move from an embedded H2 database to a external
+      database. You installed MySQL earlier and you can use it when you need
+      an external database. For MySQL you will have to do all the admin on the
+      commannd line. If you want a user interface then you can use postgreSQL. </p>
       <p>
         PostgreSQL has a fairly nice user interface (pgAdmin). If you would like a
         user interface the continue with this session. Begin by installing

@@ -2497,10 +2497,68 @@ private List<Trade> trades = new ArrayList<>();</pre>
     </section>
 
     <hr>
+    <h1>JDBC</h1>
+    <section>
+      <p> <b>Assignment:</b> Work through the <a href="https://spring.io/guides/gs/relational-data-access/">Accessing Relational Data using JDBC with Spring</a> guide</p>
+      <p>Do not do <b>start from scratch</b> but instead do the <b>skip the basics</b>.
+        After cloning the repo do the following:
+        <ol>
+          <li>Copy (recursively) the initial directory to whereever you put your projects and rename it "myjdbc"</li>
+          <li>Delete everything in root of the myjdbc directory that begins with "gradle"</li>
+          <li>Import myjdbc into IntelliJ by clicking File -> Open and then choosing the pom.xml</li>
+          <li>Create a gitignore file by visiting <a href="https://www.gitignore.io/">gitignore.io</a> and type in "Java", "Maven" and "IntelliJ".
+             Save in the root of your project as ".gitignore"</li>
+          <li>Add a README.md file and put a description of the project in it</li>
+          <li>Create a github repo (without a README or gitignore) called my-jdbc and configure it for your new project</li>
+          <li>You are now ready to work through the tutorial starting at <b>Create a Customer Object</b> </li>
+        </ol>
+        </p>
+      <p>Push your code to github</p>
+    </section>
+
+    <hr>
+    <h1>PostgreSQL</h1>
+    <section>
+      <p> <b>Objective: </b>Create a database with user/password permission</p>
+
+      <p>
+        Moving to PostgreSQL. Install
+        <br> <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads">PostgreSQL Database Download</a>
+      </p>
+
+      <p>Where do we start?
+        <ol>
+          <li>create a database <i>myfirstdb</i> using pgAdmin</li>
+          <li>in the public schema of <i>myfirstdb</i> create a table <i>myfirsttable</i>.
+            <ul>
+              <li>a column with name <i>id</i> of type <i>serial</i> for the primary key</li>
+              <li>a column with name <i>count</i> of type <i>integer</i> which can be null</li>
+              <li>a column with name <i>name</i> of type <i>text</i> which cannot be null</li>
+            </ul>
+          </li>
+        </ol>
+      </p>
+      <p>Now use the command line. Add the postgres <i>/bin</i> directory to your terminal path.
+        <ol>
+          <li>connect to the database: <i>psql myfirstdb postgres</i> </li>
+          <li>insert a row: <i>insert into myfirsttable (name, count) values ('john doe', 1);</i> </li>
+          <li>select all rows <i>select * from myfirsttable;</i> </li>
+        </ol>
+      </p>
+      <p>Some important commands
+        <ul>
+          <li>server status: <i>pg_ctl status -D &lt;data directory&gt;</i> </li>
+          <li>shutdown server: <i>pg_ctl stop -D &lt;data directory&gt;</i> </li>
+          <li>start server: <i>pg_ctl start -D &lt;data directory&gt;</i> </li>
+        </ul>
+      </p>
+
+    </section>
+
+    <hr>
     <h1>Coming Up</h1>
     <section>
       <ol>
-        <li>JDBC</li>
         <li>Spring Data</li>
         <li>JPA</li>
         <li>Layered packaging (controller/service/respository)</li>

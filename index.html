@@ -2777,16 +2777,66 @@ class PersonRepositoryImplTest {
     </section>
 
     <hr>
+    <h1>JPA</h1>
+    <section>
+      <p>Personally I hate JPA except for using it in the simpliest projects like a demo.</p>
+      <p>Read this article but do not write any code - it is just for you to get an
+      understanding of what JPA is.
+      <br> <a href="https://thoughts-on-java.org/what-is-spring-data-jpa-and-why-should-you-use-it/">What is Spring Data JPA? And why should you use it?</a>  </p>
+      <p> <b>Assignment:</b> Work through the <a href="https://spring.io/guides/gs/accessing-data-jpa/">Accessing Data with JPA</a> guide</p>
+      <p>Do not do <b>start from scratch</b> but instead do the <b>skip the basics</b>.
+        After cloning the repo do the following:
+        <ol>
+          <li>Copy (recursively) the initial directory to whereever you put your projects and rename it "myjpa"</li>
+          <li>Delete everything in root of the myjpa directory that begins with "gradle"</li>
+          <li>Import myjpa into IntelliJ by clicking File -> Open and then choosing the pom.xml</li>
+          <li>Create a gitignore file by visiting <a href="https://www.gitignore.io/">gitignore.io</a> and type in "Java", "Maven" and "IntelliJ".
+             Save in the root of your project as ".gitignore"</li>
+          <li>Add a README.md file and put a description of the project in it</li>
+          <li>Create a github repo (without a README or gitignore) called my-jdbc and configure it for your new project</li>
+          <li>You are now ready to work through the tutorial starting at <b>Define a Simple Entity</b> </li>
+        </ol>
+        </p>
+      <p>Push your code to github</p>
+    </section>
+
+    <hr>
+    <h1>Putting It Together (so far) REST/JPA</h1>
+    <section>
+      <p> <b>Objective: </b>Write REST APIs to CRUD people</p>
+      <p>Setup: Use <a href="https://start.spring.io/">Spring Initializr</a>.
+        Use the defaults except change Artifact to people.
+        <br>Add the following dependencies
+        <ul>
+          <li>Web</li>
+          <li>JPA</li>
+          <li>H2</li>
+        </ul>
+        Spring should do all the magic of connecting to H2 and creating the
+        database schema under the covers.
+      </p>
+      <p>Code the following classes
+        <ul>
+          <li>Person (entity)</li>
+          <li>PersonRepository (CrudRepository)</li>
+          <li>PersonController (POST/GET/PUT/DELETE) - note the GET should have
+          a get one and a get many </li>
+        </ul>
+       </p>
+       <p>Hit the endpoints using Postman. See <a href="https://learning.postman.com/docs/postman/postman-api/intro-api/">Intro to the Postman API</a>
+       </p>
+       <p>Push your code to github. Export your postname collection and environment
+          and include it in a
+           <i>postman</i> directory in your github repository.</p>
+    </section>
+
+    <hr>
     <h1>Coming Up</h1>
     <section>
       <ol>
-        <li>More JDBC</li>
-        <li>Spring Data</li>
-        <li>JPA</li>
         <li>Layered packaging (controller/service/respository)</li>
         <li>NoSQL</li>
         <li>Testing Unit (JUnit and Mockito) / Acceptance (Mock Servers) / Integration)</li>
-        <li>Calling REST APIs</li>
         <li>Scheduling</li>
         <li>Messaging</li>
         <li>Caching</li>

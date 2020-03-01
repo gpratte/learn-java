@@ -2831,16 +2831,67 @@ class PersonRepositoryImplTest {
     </section>
 
     <hr>
+    <h1>Layered Packaging and Transactions</h1>
+    <section>
+      <p> <b>Objective: </b>Apply layers to packaging and wrap multiple database calls in a transaction</p>
+      <p> <b>Prepare: </b> Read
+        <ul>
+          <li> <a href="https://www.petrikainulainen.net/software-development/design/understanding-spring-web-application-architecture-the-classic-way/">Understanding Spring Web Application Architecture: The Classic Way</a></li>
+        </ul>
+      </p>
+
+      <div> <b>Assignment</b>
+        <p>We will build on the previous assignment (Putting It Together (so far) REST/JPA).</p>
+        <p>Begin by making any changes from the code review when we looked at that projects.</p>
+        <p>Add an API to add a list of people. Let's call the endpoint "/people/batch"
+           that takes a List of Person. </p>
+        <p>Note that this is a contrived endpoint. Meaning you probably won't see this
+            kind of endpoint at work and you probably shouldn't introduce this endpoint
+            at work. If you need a batch endpoint at work talk to those that
+            are in a position to advise you like a senior developer. </p>
+        <p>Where will you put the business logic to
+        do this? In the controller? Not a good idea. Add a PersonService (annotate with
+        @Service) that the controller will call. The PersonService class will take a list
+         of Persons and call the respository to save the Person one at a time. Now you have
+         the beginnings of the classic layered sofware packaging (controller, service,
+        repository). </p>
+        <p>Use postman to create two people using the batch endpoint</p>
+        <p>Add @Column annotations to the Person class to limit the size. Assuming your
+          fields are snake case then
+          <ul>
+            <li>@Column(name="id") - for the id field</li>
+            <li>@Column(name="first_name", length = 32) - for the first name field</li>
+            <li>@Column(name="last_name", length = 32) - for the last name field</li>
+            <li>@Column(name="city", length = 32) - for the city field</li>
+          </ul>
+          If your fields are not snake_case the adjust accordingly.
+        </p>
+        <p>Change your postman body so the second person has a field to is too big
+           (e.g. city is more than 32 characters). What happens now? Did the first
+           person get created but not the second? </p>
+        <p>We need to wrap the @Service method in a transaction so that either all
+            the people are created or none. Simply add the @Transactional annotation
+            <pre>@Transactional
+public void addPeople(List<Person> people) {
+    for (Person person : people) {
+        personRepository.save(person);
+    }
+}</pre></p>
+        <p>Now call the api in postman again. Since the second insert failed the
+           tranaction was rolled back so no people were inserted. </p>
+      </div>
+    </section>
+
+    <hr>
     <h1>Coming Up</h1>
     <section>
       <ol>
-        <li>Layered packaging (controller/service/respository)</li>
-        <li>NoSQL</li>
         <li>Testing Unit (JUnit and Mockito) / Acceptance (Mock Servers) / Integration)</li>
+        <li>NoSQL</li>
         <li>Scheduling</li>
+        <li>Serving HTML</li>
         <li>Messaging</li>
         <li>Caching</li>
-        <li>Serving HTML</li>
         <li>Spring Security</li>
         <li>Reactive</li>
         <li>Docker</li>

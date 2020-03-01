@@ -2879,7 +2879,21 @@ public void addPeople(List<Person> people) {
 }</pre></p>
         <p>Now call the api in postman again. Since the second insert failed the
            tranaction was rolled back so no people were inserted. </p>
+        <p>Push your code to github</p>
       </div>
+    </section>
+
+    <hr>
+    <h1>Use MySQL or PostgreSQL instead of H2</h1>
+    <section>
+      <p> <b>Objective: </b>Use a non-embedded database</p>
+
+      <p> <b>Assignment</b>In a previous
+        lesson you configured MySQL. There is also an optional previous lesson
+        to use PostgreSQL. Configure the application to use a database in either
+        MySQL or PostgreSQL.
+      </p>
+      <p>Remember to remove the H2 dependency in the pom.xml. </p>
     </section>
 
     <hr>
